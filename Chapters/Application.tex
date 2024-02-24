@@ -1,0 +1,369 @@
+
+% \chapter{Application}
+
+
+
+% \[
+% A_{x_1} = \begin{bmatrix}
+%     b_1 & a_{12} & a_{13} & \cdots & \vdots \\
+%     b_2 & a_{12} & a_{23} & \cdots & \vdots \\
+%     b_3 & a_{32} & a_{33} & \cdots & \vdots \\
+%     \vdots & \vdots & \vdots & \ddots & \vdots \\
+% \end{bmatrix}
+% \]
+
+% \[
+% A_{x_2} = \begin{bmatrix}
+%     a_{11} & b_1 & a_{13} & \cdots & \vdots \\
+%     a_{21} & b_2 & a_{23} & \cdots & \vdots \\
+%     a_{31} & b_3 & a_{33} & \cdots & \vdots \\
+%     \vdots & \vdots & \vdots & \ddots & \vdots \\
+% \end{bmatrix}
+% \]
+
+
+% \[
+% A_{x_3} = \begin{bmatrix}
+%     a_{11} & a_{12} & b_1 & \cdots & \vdots \\
+%     a_{21} & a_{22} & b_2 & \cdots & \vdots \\
+%     a_{31} & a_{32} & b_3 & \cdots & \vdots \\
+%     \vdots & \vdots & \vdots & \ddots & \vdots \\
+% \end{bmatrix}
+% \]
+% \[
+% A_{x_i} = \begin{bmatrix}
+%     a_{11} & a_{12} & \cdots & \cdots & b_1 & \cdots & \vdots \\
+%     a_{21} & a_{22} & \cdots & \cdots & b_2 & \cdots & \vdots \\
+%     a_{31} & a_{32} & \cdots & \cdots & b_3 & \cdots & \vdots \\
+%     \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+% \end{bmatrix}
+% \]
+
+
+
+
+
+
+% %find rank of a matrix using determinant
+
+
+
+
+
+
+% A must-be invertible (singular hote parbe na det is not  0)
+% the eigenvalues of A should not lie on or to the left of the imaginary axis in the complex plane.
+% If A is diagonalizable, the logarithm is well-defined and can be expressed in terms of the logarithm of the eigenvalues.
+
+
+% Generated Matrix A:
+%    -0.3839   -0.0430   -2.2972   -1.3881
+%     0.5208    0.5021    1.7270   -1.7601
+%    -0.6496   -0.6559   -0.0442    2.0515
+%    -0.6522   -0.3158    0.3104    0.0082
+
+% Matrix with only Diagonal Elements:
+%    -0.3839         0         0         0
+%          0    0.5021         0         0
+%          0         0   -0.0442         0
+%          0         0         0    0.0082
+
+% Eigenvalues of A:
+%    1.9939 + 0.0000i
+%   -0.8448 + 0.3001i
+%   -0.8448 - 0.3001i
+%   -0.2220 + 0.0000i
+
+% Determinant of A: -0.355825
+% Determinant of Diagonal Matrix: 0.000070
+% Determinant with det(exp(log(A)))0.000070
+% Determinant of exp(trace(logA))) Matrix: 0.000070
+% Matrix Size =      4
+
+% Norm of A: 3.211099
+
+
+
+% Generated Matrix with Norm less than 1:
+%     0.7383    0.1881   -0.0086   -0.1347
+%     0.4422   -0.0604    0.3169   -0.1922
+%    -0.1665    0.2680    0.1369    0.2084
+%     0.2318    0.2557   -0.5315    0.3183
+
+% % % Norm: 0.93208
+%     0.3969    0.4115    0.3701    0.4462    0.3897    0.3970    0.4247    0.4128
+%     0.3424    0.4031    0.3967    0.3446    0.4512    0.3967    0.3381    0.4007
+%     0.4022    0.3488    0.4122    0.4098    0.3462    0.3935    0.3300    0.4512
+%     0.3479    0.3877    0.4336    0.3911    0.4229    0.3849    0.4074    0.4141
+%     0.4459    0.3569    0.4138    0.3795    0.3470    0.4023    0.3703    0.3336
+%     0.3557    0.3939    0.3500    0.3282    0.3746    0.4136    0.3288    0.4290
+%     0.3330    0.3896    0.3710    0.4290    0.4295    0.4259    0.3761    0.3973
+%     0.3897    0.3308    0.3655    0.4487    0.3730    0.4413    0.3877    0.4186
+
+% Norm: 0.0031197
+
+%   -0.9574 + 3.1416i     -Inf + 0.0000i     -Inf + 0.0000i     -Inf + 0.0000i
+%      -Inf + 0.0000i  -0.6890 + 0.0000i     -Inf + 0.0000i     -Inf + 0.0000i
+%      -Inf + 0.0000i     -Inf + 0.0000i  -3.1190 + 3.1416i     -Inf + 0.0000i
+%      -Inf + 0.0000i     -Inf + 0.0000i     -Inf + 0.0000i  -4.8036 + 0.0000i
+
+
+%   Generated Matrix A:
+%          -1.36756355218579        -0.171936760403318        -0.312940106136561
+%          0.713580680570867         0.067504488674806         0.171401507251373
+%         -0.816946438525939         -1.40028617999193          1.41687507617848
+
+% Matrix Size: 3x3
+% Determinant of A: 0.034319
+% Determinant of exp(Log(A)): 0.034319
+% Exponential of Trace of Logarithm of A: 0.034319
+% Eigenvalues of A:
+%          -1.28471891906284
+%           1.42034230874496
+%        -0.0188073770146224
+
+% Norm of A 
+%           2.24608048557211
+
+
+% Generated Matrix A:
+%           1.26338139368017          0.86146915125428           1.2377094893339
+%           1.76958065158468          1.91779045587951          1.07551256989763
+%         -0.117929306964147        -0.362204991379072          0.88167872133962
+
+% Matrix Size: 3x3
+% Determinant of A: 0.661662
+% Determinant of exp(Log(A)): 0.661662
+% Exponential of Trace of Logarithm of A: 0.661662
+% Eigenvalues of A:
+%          0.188614462254616
+%           2.43149838122942
+%           1.44273772741526
+
+% Norm of A 
+%           3.39691271463874
+
+% Generated matrix with positive real eigenvalues after 113 attempts.
+% Generated Matrix A:
+%          0.750427307536767         -1.25964658462338         -0.53361400007362
+%          -0.27451487257325         0.278852025695056         0.788225385531201
+%         -0.616240612337682        -0.352028095418486          2.45604451341484
+
+% Matrix Size: 3x3
+% Determinant of A: 0.341487
+% Determinant of exp(Log(A)): 0.341487
+% Exponential of Trace of Logarithm of A: 0.341487
+% Eigenvalues of A:
+%           2.65129049838146
+%          0.204643364396861
+%          0.629389983868349
+
+% Norm of A 
+%           2.76369811259236
+
+
+% Generated matrix with positive real eigenvalues after 75567 attempts.
+% Generated Matrix A:
+%           2.25393059518352          1.15419175607307         0.859671767515272        -0.388503895643576        0.0547793326539783
+%         -0.175000427217086         0.323739322082369       -0.0645149420239153         0.649425055732565         0.939018006069914
+%           1.31062032323398         0.143846563638638          1.57319123657924          1.41042402336617         0.325375660052977
+%         -0.727814380911442       -0.0336516713690867         0.324993024935914          0.57738865091705         0.343410929684072
+%         -0.293495350917454         -1.30693631262696         -1.66735966923607         0.863975705832026         0.534755066749825
+
+% Matrix Size: 5x5
+% Determinant of A: 0.011444
+% Determinant of exp(Log(A)): 0.011444
+% Exponential of Trace of Logarithm of A: 0.011444
+% Eigenvalues of A:
+%           2.34443437652015
+%        0.00611629552225635
+%          0.631634183780109
+%          0.948036327486223
+%           1.33278368820326
+
+% Norm of A 
+%           3.63222147088916
+
+
+
+
+% Generated matrix with positive real eigenvalues and norm(identity - A) < 1 after 11908 attempts.
+% Original Matrix A:
+%     0.8490    0.1044    0.0735
+%    -0.0778    0.5272   -0.1234
+%    -0.0879   -0.7921    0.8866
+
+% Eigenvalues of A:
+%     0.3796
+%     0.8118
+%     1.0714
+
+% Norm of (I-A): 0.948522
+
+% log_A_series =
+
+%    -0.1510    0.1044    0.0735
+%    -0.0778   -0.4728   -0.1234
+%    -0.0879   -0.7921   -0.1134
+
+
+% log_A_series =
+
+%    -0.1551    0.1661    0.0897
+%    -0.1075   -0.6293   -0.1566
+%    -0.1303   -1.0197   -0.1655
+
+
+% log_A_series =
+
+%    -0.1514    0.1944    0.0962
+%    -0.1205   -0.6942   -0.1706
+%    -0.1495   -1.1159   -0.1861
+
+
+% log_A_series =
+
+%    -0.1489    0.2080    0.0992
+%    -0.1267   -0.7244   -0.1770
+%    -0.1586   -1.1608   -0.1957
+
+% original matrix det    0.3302
+
+% Approximated Logarithm of A using series expansion:
+%    -0.1489    0.2080    0.0992
+%    -0.1267   -0.7244   -0.1770
+%    -0.1586   -1.1608   -0.1957
+
+% exp_trace_log_A_series    0.3434
+
+% Norm of Approximated Logarithm of A: 1.421542
+
+
+
+
+
+
+
+
+
+
+% Generated matrix with positive real eigenvalues and norm(identity - A) < 1 after 10622 attempts.
+% Original Matrix A:
+%     1.0343    0.6090    0.2554
+%     0.2601    0.5579   -0.2215
+%     0.4473   -0.3263    0.8208
+
+% Eigenvalues of A:
+%     0.0930
+%     1.3097
+%     1.0103
+
+% Norm of (I-A): 0.964293
+
+% term =
+
+%     0.0343    0.6090    0.2554
+%     0.2601   -0.4421   -0.2215
+%     0.4473   -0.3263   -0.1792
+
+
+% term =
+
+%    -0.1369    0.1659    0.0859
+%     0.1026   -0.2131   -0.1020
+%     0.0749   -0.2376   -0.1093
+
+
+% term =
+
+%    -0.0513    0.1232    0.0581
+%     0.0650   -0.1266   -0.0611
+%     0.0721   -0.1242   -0.0609
+
+
+% term =
+
+%    -0.0422    0.0785    0.0381
+%     0.0435   -0.0866   -0.0417
+%     0.0428   -0.0890   -0.0426
+
+% original matrix det    0.1231
+
+% Approximated Logarithm of A using series expansion:
+%    -0.1961    0.9765    0.4375
+%     0.4712   -0.8684   -0.4263
+%     0.6371   -0.7771   -0.3920
+
+% exp_trace_log_A_series    0.2330
+
+% Norm of Approximated Logarithm of A: 1.839834
+% >> 
+
+% Original Matrix A:
+%     0.8763    0.7373    0.2400
+%     0.3106    1.2792    0.1884
+%     0.2902    0.1537    0.1851
+
+% Eigenvalues of A:
+%     1.6592
+%     0.5739
+%     0.1076
+
+% Norm of (I-A): 0.928126
+
+% log_A_series =
+
+%    -0.1237    0.7373    0.2400
+%     0.3106    0.2792    0.1884
+%     0.2902    0.1537   -0.8149
+
+
+% log_A_series =
+
+%    -0.2807    0.6616    0.2832
+%     0.2591    0.1113    0.2016
+%     0.4025    0.0879   -1.1962
+
+
+% log_A_series =
+
+%    -0.2863    0.7484    0.3413
+%     0.2871    0.1665    0.2381
+%     0.4992    0.0840   -1.4131
+
+
+% log_A_series =
+
+%    -0.3197    0.7266    0.3656
+%     0.2688    0.1352    0.2476
+%     0.5563    0.0563   -1.5624
+
+
+% log_A_series =
+
+%    -0.3232    0.7482    0.3911
+%     0.2726    0.1518    0.2620
+%     0.6035    0.0472   -1.6666
+
+
+% log_A_series =
+
+%    -0.3353    0.7421    0.4057
+%     0.2652    0.1438    0.2684
+%     0.6359    0.0337   -1.7454
+
+
+% original matrix det    0.5748
+
+% Approximated Logarithm of A using series expansion:
+%     0.2392    0.1634
+%     0.2899   -0.7929
+
+% exp_trace_log_A_series    0.5748
+
+% Norm of Approximated Logarithm of A: 0.847590
+
+
+% %%%%% another one
+
+% Within this study, our objective is to elucidate the foundational principles governing infinite matrices. Our research endeavours are specifically centred on the determinant properties inherent to infinite matrices. Similar to their finite counterparts, infinite matrices exhibit analogous properties, such as eigenvalues, eigenvectors, and the capability to solve systems of linear equations. Chapter 2 presents an exposition on the matrix logarithm, delineating its application in both real and complex contexts. Within this chapter, various definitions pertinent to matrices are introduced and discussed in detail. Chapter 3 extensively explores the concept of determinants in matrices, addressing both finite and infinite scenarios, with particular emphasis on the crucial role of determinants in characterizing properties of infinite matrices. In the finite domain, the application of determinants is exemplified through Cramer's rule, illustrating its utility in solving systems of linear equations. Transitioning to the infinite domain, the chapter endeavors to establish a theorem pertaining to matrix multiplication in infinite dimensions. Subsequently, the calculation of determinants is approached through the trace of matrix logarithms for finite dimensions, and by assuming the convergence of series for infinite dimensions. Numerous illustrative examples are provided to elucidate these concepts. Furthermore, the chapter highlights a fundamental property of determinants wherein the determinant of a product of two square matrices equals the product of their individual determinants, a principle demonstrated for infinite cases as well. Concluding the chapter, an application of solving systems of linear equations in infinite settings is presented. Chapter 4 delves into the concept of matrix inverses, presenting a formal definition alongside illustrative examples within finite contexts. Extending the discussion to infinite cases, a proposition is introduced elucidating the notion of matrix invertibility concerning sub-multiplicative norms. Chapter 5 comprehensively introduces the row reduction method for finite matrices, accompanied by illustrative examples and its practical application in obtaining the row echelon form of matrices. Transitioning to infinite matrices, a theorem is established to demonstrate the compatibility of systems of linear equations within this framework. Chapter 6 is dedicated to the exploration of basis transformation for both finite and infinite matrices. In the finite context, the chapter provides a concise definition and illustrative examples to elucidate the concept. Meanwhile, for infinite matrices, the chapter outlines a systematic procedure for computing basis transformations. The concluding chapter of our project focuses on eigenvalues and eigenvectors, commencing with a formal definition and illustrative examples to facilitate comprehension. Building upon the findings from the determinant chapter, we underscore the significance of utilizing the trace of the logarithm, derived via Taylor series expansion, as a fruitful formula for determinant calculation. To establish the existence of the matrix logarithm, specific conditions are elucidated: for real entries matrices, positive eigenvalues are requisite, while for complex entries matrices, a unique logarithm with eigenvalues confined within a designated strip, known as the principal logarithm, is demonstrated. Moreover, for the real entries matrices, ensuring the difference between the coefficient matrix and the identity matrix's sub-multiplicative norm is less than one further corroborates the feasibility of the logarithmic operation.

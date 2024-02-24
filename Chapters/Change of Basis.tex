@@ -1,0 +1,76 @@
+\chapter{Change of Basis}
+This chapter primarily focuses on defining the concept of a basis within the context of vector spaces. It delves into the intricacies of changing bases, considering both finite and infinite scenarios. For finite cases, a formal definition of basis transformation is provided, supplemented by illustrative examples to enhance comprehension. Conversely, in the infinite case, the transformation of basis is calculated through the manipulation of products and the summation of infinite terms.
+\section{Basis of finite matrices}
+\begin{definition}
+A \textbf{basis} for a vector space $ V $ over a field $ F $ is a set $ $B$ = \{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\} $ of vectors in $ V $ such that
+\end{definition}
+\begin{enumerate}
+    \item The set $ $B$ $ spans $ V $, meaning that every vector $ \mathbf{v} $ in $ V $ can be expressed as a linear combination of vectors in $ $B$ $. In other words, for any $ \mathbf{v} \in V $, there exist scalars $ c_1, c_2, \ldots, c_n \in F $ such that $ \mathbf{v} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \ldots + c_n\mathbf{v}_n $.
+    \item The set $ $B$ $ is linearly independent, meaning that no vector in $ $B$ $ can be expressed as a linear combination of the others. In other words, if $ c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \ldots + c_n\mathbf{v}_n = \mathbf{0} $, then all the scalars $ c_1, c_2, \ldots, c_n $ must be zero.
+\end{enumerate}
+If a vector space has a basis, then any vector in that space can be uniquely expressed as a linear combination of the basis vectors. The number of vectors in the basis is called the dimension of the vector space.
+
+\section{Change of basis for finite matrices}
+\begin{definition}
+    In linear algebra, given a vector space \(V\) with two bases $B$ and \(C\), the change of basis is represented by a matrix \(P\). This matrix transforms coordinates from the $B$-basis to the \(C\)-basis. If \([v]_B\) is the coordinate vector of a vector \(v\) in the $B$-basis, and \([v]_C\) is its coordinate vector in the \(C\)-basis, the relationship is given by:
+    \[ [v]_C = P^{-1}[v]_B\]
+
+Here, \(P\) is the change of basis matrix, and \(P^{-1}\) is its inverse. This process facilitates the conversion of vectors or linear transformations between different bases within the same vector space.
+\end{definition}
+
+
+\begin{example}
+Let 
+\[ B = \left\{ \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \end{bmatrix} \right\} \] \\
+and \[ B' = \left\{ \begin{bmatrix} 3 \\ 1 \end{bmatrix}, 
+\begin{bmatrix} -2 \\ 1 \end{bmatrix} \right\} \].
+
+
+The change of basis matrix from \( B' \) to \( B \) is given by \( P = \begin{bmatrix} 3 & -2 \\ 1 & 1 \end{bmatrix} \).
+
+If \[ [v]_{B'} = \begin{bmatrix} 2 \\ 1 \end{bmatrix} \] represents the coordinates of vector \( v \) relative to the basis \( B' \), then the coordinates of \( v \) relative to the basis \( B \) are obtained by,
+\begin{center}
+    \( [v]_B = P[v]_{B'} = \begin{bmatrix} 3 & -2 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 4 \\ 3 \end{bmatrix} \).
+\end{center}
+
+
+Now, if \( P^{-1} = \begin{bmatrix} 1 & 5 \\ -1 & 3 \end{bmatrix} \)
+we can verify that,
+\begin{center}
+    \( [v]_{B'} = P^{-1}[v]_B = \begin{bmatrix} 1 & 5 \\ -1 & 3 \end{bmatrix} \begin{bmatrix} 4 \\ 3 \end{bmatrix} = \begin{bmatrix} 2 \\ 1 \end{bmatrix} \)
+\end{center}
+ which is consistent with the original coordinates of \( v \) in the basis \( B' \).
+\end{example}
+    
+
+
+
+
+
+\section{Change of basis in the case of infinite transition matrices }
+Let $B = \{v_1, v_2, v_3, \ldots\}$ and $B' = \{u_1, u_2, u_3, \ldots\}$. For $i = 1, 2, 3, \ldots$, compute coordinates $\alpha^{(i)}_1, \alpha^{(i)}_2, \alpha^{(i)}_3, \ldots$ of the basis vector $B'$ in basis $B$
+\[ u_i = \sum_{j=1}^{\infty} \alpha^{(i)}_j v_j. \]
+Hence a transition matrix is of the form:
+\[
+\begin{bmatrix}
+    \alpha^{(1)}_1 & \alpha^{(2)}_1 & \alpha^{(3)}_1 & \ldots \\
+    \alpha^{(1)}_2 & \alpha^{(2)}_2 & \alpha^{(3)}_2 & \ldots \\
+    \alpha^{(1)}_3 & \alpha^{(2)}_3 & \alpha^{(3)}_3 & \ldots \\
+    \vdots & \vdots & \vdots & \ddots \\
+\end{bmatrix}
+\]
+
+Let \(L: U \to V\) be a linear transformation, where $U$ and $V$ are linear spaces such that \(\text{dim } U = m\), \(\text{dim } V = n\) (\(m, n\) can be \(\infty\)), and a basis of \(U\) be \(\{u_1, u_2, \ldots, u_m\}\), a basis of \(V\) be \(\{v_1, v_2, \ldots, v_n\}\). For \(i = 1, 2, \ldots, m\) and \(j = 1, 2, \ldots, n\), compute
+\[
+L(u_i) = \sum_{j=1}^n \alpha^{(i)}_j v_j.
+\]
+Then a transformation matrix of transformation \(L\) is of the form:
+\[
+\begin{bmatrix}
+    \alpha^{(1)}_1 & \alpha^{(2)}_1 & \ldots & \alpha^{(n)}_1 \\
+    \alpha^{(1)}_2 & \alpha^{(2)}_2 & \ldots & \alpha^{(n)}_2 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \alpha^{(1)}_m & \alpha^{(2)}_m & \ldots & \alpha^{(n)}_m \\
+\end{bmatrix}
+\]
+

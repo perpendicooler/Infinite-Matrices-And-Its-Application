@@ -1,0 +1,113 @@
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,setspace,csquotes}
+\usepackage[T1]{fontenc}
+\usepackage[skip=12pt, indent=30pt]{parskip}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{empheq}
+\usepackage{graphicx}
+\usepackage{geometry}
+\theoremstyle{definition}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{float}
+\usepackage{algpseudocode}
+
+\usepackage{amsmath,amsthm}
+% \renewcommand\arraystretch{1.5} % Adjust vertical spacing
+% \theoremstyle{plain}
+
+ % Set theorem font style to plain
+\counterwithin{figure}{chapter}
+% Define theorem-like environments
+% Define theorem-like environments
+\newtheorem{theorem}{Theorem}[section] % Theorems numbered within 
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+% \theoremstyle{plain}
+%\usepackage[backend=biber,style=apa,sorting=nyt]{biblatex}
+\usepackage[font=small,labelfont=bf]{caption}
+% \usepackage[left=1.25in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{booktabs}
+% \usepackage[english]{algorithm2e}
+\usepackage{hyperref}
+\def\englishtablename{Tableau}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amssymb} 
+\usepackage{xcolor}
+
+%\usepackage{fancyhdr}
+%\usepackage{enumitem}
+
+% Define a new theorem-like environment for source code
+\newtheoremstyle{sourcecodestyle}
+  {\topsep} % Space above
+  {\topsep} % Space below
+  {\ttfamily} % Body font
+  {} % Indent amount
+  {\bfseries} % Theorem head font
+  {.} % Punctuation after theorem head
+  {.5em} % Space after theorem head
+  {} % Theorem head spec (can be left empty, meaning `normal`)
+
+\theoremstyle{sourcecodestyle}
+\newtheorem{sourcecode}{Source Code}[chapter]
+% Configuration des liens
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1,1,1}
+% Define a custom style for code listings
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color{codegreen}, % Color for comments
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+% Set the custom style
+\lstset{style=mystyle}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=blue,
+    citecolor=black,
+    pdftitle={Infinite Matrices},
+    pdfpagemode=FullScreen,
+    }
+\urlstyle{same}
+% Configuration des algorithmes
+% \RestyleAlgo{ruled}
+% \SetKw{KwBy}{by}
+% Configuration des légendes
+\captionsetup{width=13.5cm}
+
+
+
+
+%%%%%%%%% TITTLE %%%%%%%%%%%%%
+
+
+\title{Infinite Matrices Result Application}
+\author{}
+
+
+
+
+
+
+

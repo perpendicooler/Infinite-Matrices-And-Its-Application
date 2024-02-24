@@ -1,0 +1,538 @@
+\chapter{Preliminaries}
+The chapter delves into matrix definitions, rank analysis, and linear transformations, notably exploring matrix logarithms in real and complex domains, focusing on complex matrices with positive eigenvalues. It introduces a method for deriving complex matrix logarithms via Taylor series expansion contingent upon convergence. Section 2 covers convergent sequences and series alongside an analysis of norms in the real line. Section 3 discusses vector space definitions and dimensions with examples. Lastly, Section 4 explores fundamental algebraic structures like groups, rings, integral domains, and fields, supplemented with illustrative examples.
+
+
+%%% baki chapter gulo te cite del kor %%%%%%%
+
+\section{Groups, rings, and fields}
+Most of the definitions recalled in this section belong to the classical book by Joseph Gallian~\cite{gallian2021contemporary}.
+\begin{definition}
+A \textbf{group} is a nonempty set \(G\) on which there is defined a binary operation satisfying the following properties:
+\begin{enumerate}
+    \item Closure: If \(a\) and \(b\) are two elements in the group \(G\), then the product \(a * b\) is also in \(G\).
+    \item Associativity: The operation is associative; that is, \((a * b) * c = a * (b * c)\) for all \(a, b, c\) in \(G\).
+    \item Identity: There is an element \(e\) (called the identity) in \(G\) such that \(a * e = e * a = a\) for all \(a\) in \(G\).
+    \item Inverses: For each element \(a\) in \(G\), there is an element \(b\) in \(G\) (called an inverse of \(a\)) such that \(a * b = b * a = e\).
+\end{enumerate}
+    
+\end{definition}
+
+\begin{example}
+    The set of integers \(\mathbb{Z}\) with the operation of addition forms a group as follows:
+\begin{center}
+    \begin{enumerate}
+    \item Closure: The sum of any two integers is also an integer.
+    \item Associativity: Addition is associative.
+    \item Identity element: The identity element for addition is \(0\).
+    \item Invertibility: For every integer \(a\), there exists an inverse \((-a)\) such that \(a + (-a) = 0\).
+\end{enumerate}
+\end{center}
+
+\end{example}
+\begin{definition}
+An algebraic structure \((R,+,*)\) consisting of a non-empty set \(R\) with two binary compositions (to be denoted additively and multiplicatively) is called a \textbf{ring} if the following properties are satisfied:
+\begin{enumerate}
+    \item \((R, +)\) is an abelian group.
+    \item Multiplication is associative, i.e., \((ab)c = a(bc)\) for all \(a, b, c \in R\).
+    \item Multiplication distributes addition, i.e., \(a(b+c) = ab + ac\) and \((a+b)c = ac + bc\) for all \(a, b, c \in R\).%gallian2021contemporary}
+\end{enumerate}
+    
+\end{definition}
+\begin{example}
+    The set of integers \(\mathbb{Z}\) with addition and multiplication forms a ring because it satisfies closure, associativity, the existence of an additive identity, additive inverses, and the distributive property.
+
+\end{example} 
+\begin{definition}
+    
+A ring \((R,+,*)\) is called an \textbf{integral domain }if it is a commutative ring with unity and without zero divisors.
+An example of an integral domain is the set of integers \(\mathbb{Z}\) with the usual operations of addition and multiplication.
+
+\begin{enumerate}
+    \item Closure under addition and multiplication: For any two integers \(a\) and \(b\), their sum \(a + b\) and product \(a \cdot b\) are also integers.
+    \item Associativity of addition and multiplication: Both addition and multiplication operations are associative in \(\mathbb{Z}\).
+    \item Commutativity of addition and multiplication: Both addition and multiplication operations are commutative in \(\mathbb{Z}\).
+    \item Existence of additive and multiplicative identity: The additive identity is \(0\), and the multiplicative identity is \(1\).
+    \item No zero divisors: In \(\mathbb{Z}\), if the product of two integers is zero (\(a \cdot b = 0\)), then either \(a = 0\) or \(b = 0\). There are no non-zero divisors of zero.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+    The set of integers \(\mathbb{Z}\) with addition and multiplication satisfies the properties of an integral domain.
+
+\end{example} 
+\begin{definition}
+A ring \((R,+,*)\) is called a \textbf{field} if it is a commutative ring with unity in which every non-zero element has a multiplicative inverse.
+The set of complex numbers \(\mathbb{C}\) with the operations of addition and multiplication forms a field.
+\begin{enumerate}
+    \item Closure under addition and multiplication: For any two complex numbers \(a + bi\) and \(c + di\), where \(a, b, c, d\) are real numbers, their sum and product are also complex numbers.
+    \item Associativity of addition and multiplication: Both addition and multiplication operations are associative in \(\mathbb{C}\).
+    \item Existence of additive and multiplicative identity: The additive identity is \(0 + 0i\), and the multiplicative identity is \(1 + 0i\).
+    \item Existence of additive and multiplicative inverses: For every nonzero complex number \(a + bi\), there exists an additive inverse \(-a - bi\) such that \(a + bi + (-a - bi) = 0\), and there exists a multiplicative inverse \(\frac{1}{a + bi}\) such that \((a + bi) \cdot \frac{1}{a + bi} = 1\).
+    \item Distributive property: Multiplication distributes over addition, meaning \((a + bi) \cdot (c + di) = ac - bd + (ad + bc)i\) for any complex numbers \(a + bi, c + di\).
+\end{enumerate}
+\end{definition}
+\begin{example}
+    The set of complex numbers \(\mathbb{C}\) with addition and multiplication satisfies the properties of a field.
+
+\end{example}
+\begin{definition}
+ A \textbf{Gaussian integer} is a complex number $a + ib$ such that both $a$ and $b$ are integers.
+\end{definition}
+
+\begin{example}
+Consider the complex number $3 - 2i$. Here, the real part $a = 3$ and the imaginary part $b = -2$. Therefore, $3 - 2i$ is a Gaussian integer.
+\end{example}
+
+
+
+
+\newpage
+\section{Sequence and series }
+Most of the definitions recalled in this section belongs to the classical books by Walter Rudin~\cite{rudin1976} and Terence Tao~\cite{teretaobook}. 
+\begin{definition}.
+ Let $\varepsilon>0$ be a real number, and let $L$ be a real number. A sequence $\left(a_n\right)_{n=N}^{\infty}$ of real numbers is said to be $\varepsilon$-close to $L$ iff $a_n$ is $\varepsilon$-close to $L$ for every $n \geq N$, i.e., we have $\left|a_n-L\right| \leq \varepsilon$ for every $n \geq N$. We say that a sequence $\left(a_n\right)_{n=m}^{\infty}$ is eventually $\varepsilon$-close to $L$ iff there exists an $N \geq m$ such that $\left(a_n\right)_{n=N}^{\infty}$ is $\varepsilon$-close to $L$. We say that a sequence $\left(a_n\right)_{n=m}^{\infty}$ converges to $L$ iff it is eventually $\varepsilon$-close to $L$ for every real $\varepsilon>0$. 
+ A \textbf{convergent sequence} is a sequence of real numbers that approaches a specific limit as the sequence progresses.
+\end{definition}
+
+
+ \begin{example} 
+ Consider the sequence $(a_n)$, where
+\[ a_n = \frac{1}{n}. \]
+
+Here, $(a_n)$ is a sequence defined by the reciprocal of natural numbers $1, 2, 3, \ldots$. The terms of the sequence are
+
+\[ a_1 = 1, \quad a_2 = \frac{1}{2}, \quad a_3 = \frac{1}{3}, \quad \ldots. \]
+
+As \( n \) approaches infinity, \( a_n \) approaches zero. The limit of this sequence as \( n \) approaches infinity is
+
+\[ \lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{1}{n} = 0. \]
+
+Therefore, the sequence $(\frac{1}{n})$ is a convergent sequence, and its limit is 0. In general, a sequence $(a_n)$ is said to converge to a limit \( L \) if, for any small positive number \( \epsilon \), there exists a positive integer \( N \) such that \( |a_n - L| < \epsilon \) for all \( n \geq N \).
+
+ \end{example}
+ \begin{definition}
+Let $\sum_{n=m}^{\infty} a_n $ an be a formal infinite series. For any integer N $\geq$ m, we define the $N^{th}$ partial sum $S_N$ of this series to be $S_N$ = $\sum_{n = m}^{N} a_n $; of course, $S_N$ is a real number. If the sequence $( S_N )_{n = m} ^\infty$ converges to Some 
+limit $L$ as $ N \to\infty$, then we say that the infinite series $\sum_{n=m}^{\infty} a_n $  is \textbf{convergent series}, and converges to $L$; we also write $L$ = $\sum_{n=m}^{\infty} a_n $, and say that $L$ is the sum of the infinite series $\sum_{n=m}^{\infty} a_n $. If the partial sums $S_N$ diverge, then we say that the infinite series $\sum_{n=m}^{\infty} a_n $ is divergent, and we do not assign any real number value to that series.
+ \end{definition}
+  
+\begin{example}
+    We consider an example of a convergent series.The series is given by as follows:
+
+\[ \sum_{n=1}^{\infty} \frac{1}{n^2} \]
+
+Mathematically, the sum is expressed as follows:
+
+\[ \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6} \]
+
+By $p$-series test, which states that \( \sum_{n=1}^{\infty} \frac{1}{n^p} \) converges if \( p > 1 \). In this case, \( p = 2 \), so the series converges.
+\end{example}
+
+
+
+
+\bigskip\bigskip
+
+\section{Vectors and vector norms}
+Most of the definitions recalled in this section belong to the classical book by Gilbert Strang \cite{gilbertstrang}.
+\begin{definition}
+Let $V$ be a \textbf{vector space} and $\{v_1,v_2,....,v_n\}$ a finite set of vectors in $V$. We call $\{v_1,v_2,....,v_n\}$ a basis for $V$ if and only if
+\begin{enumerate}
+ \item $\{v_1,v_2,....,v_n\}$ is linearly independent and
+ \item $\{v_1,v_2,....,v_n\}$ spans $V$.
+\end{enumerate}
+In \(\mathbb{R}^2\), the vectors \(\mathbf{v}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\) and \(\mathbf{v}_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\) form a basis because the following hold.
+\begin{enumerate}
+    \item They span \(\mathbb{R}^2\): Any vector in \(\mathbb{R}^2\) can be expressed as a linear combination of \(\mathbf{v}_1\) and \(\mathbf{v}_2\).
+    \item They are linearly independent: No scalar multiples of \(\mathbf{v}_1\) and \(\mathbf{v}_2\) can add up to the zero vector unless all the scalars are zero.
+\end{enumerate}
+\end{definition}
+\begin{example}
+Consider the vectors $\mathbf{u} = \begin{bmatrix} 3 \\ -2 \end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix} 1 \\ 5 \end{bmatrix}$ in $V$. Their sum and scalar multiplication are
+\[
+\mathbf{u} + \mathbf{v} = \begin{bmatrix} 4 \\ 3 \end{bmatrix} \quad \text{and} \quad 2 \mathbf{u} = \begin{bmatrix} 6 \\ -4 \end{bmatrix}.
+\]
+\end{example}
+\begin{definition}
+The\textbf{ dimension} of a vector space is equal to the maximum number of linearly independent vectors contained in it.
+\end{definition}
+\begin{example}
+    We consider the vector space \( \mathbb{R}^2 \), the two-dimensional real vector space. A standard basis for \( \mathbb{R}^2 \) is given by the set of vectors
+
+\[ \{(1, 0), (0, 1)\}. \]
+
+These vectors are the standard unit vectors along the $x$-axis and $y$-axis. They are linearly independent and span the entire \( \mathbb{R}^2 \) space.
+
+Therefore, the dimension of \( \mathbb{R}^2 \) is 2 because the basis has two linearly independent vectors. In general, the dimension of a vector space is the number of vectors in any basis for that space.
+\end{example}
+
+
+
+\begin{definition}
+ A \textbf{linear transformation} $T: \mathbb{R}^n \rightarrow \mathbb{R}^m$ is any function from one Euclidean space $\mathbb{R}^n$ to another $\mathbb{R}^m$ which obeys the following two axioms.
+ \newline
+ (a) Additivity : $\forall$ $\mathbf{x}, \mathbf{x}^{\prime} \in \mathbb{R}^n$, we have $T\left(\mathbf{x}+\mathbf{x}^{\prime}\right)=$ $T\left(\mathbf{x}\right)+T\left(\mathbf{x}^{\prime}\right)$.
+\newline
+(b) Homogeneity : $\forall$ $\mathbf{x} \in \mathbb{\!R}^n$ and every $c \in \mathbb{R}$, we have $T(c \mathbf{x})=c T(\mathbf{x})$.
+\newline
+\end{definition}
+
+\begin{example}
+    Consider the map $f:\mathbb{R} \to \mathbb{R}$ defined as $f(x) = 3x+2$. To check its linearity, we need to check the following two properties.
+\begin{enumerate}
+    \item  For any two real numbers $x$ and $y$, $f(x+y)$ should be equal to $f(x)+f(y)$.
+    \item For any real number $x$ and any scalar $c$, $f(cx)$ should be equal to $cf(x)$.
+\end{enumerate}
+For the given map, we have
+\[
+\begin{aligned}
+    f(x+y) &= 3(x+y) + 2 \\
+           &= 3x + 3y + 2.
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+    f(x) + f(y) &= (3x + 2) + (3y + 2) \\
+              &= 3x + 3y + 4.
+\end{aligned}
+\]
+
+So, \[f(x+y) \neq f(x) + f(y).\]
+
+Again,
+\[
+\begin{aligned}
+    f(cx) &= 3(cx) + 2 \\
+    cf(x) &= c(3x + 2) \\
+          &= 3cx + 2c.
+\end{aligned}
+\]
+
+So, \[f(cx) \neq cf(x).\]
+
+Therefore, the map \(f: \mathbb{R} \to \mathbb{R}\) defined as $f(x) = 3x + 2$ is not linear.
+\end{example}
+
+
+
+\begin{definition}
+The \textbf{ norm } or \textbf{ length } of a vector $\mathbf{x}$ in $\mathbb{R}^n$ is defined by $\| \mathbf{x} \|$ =$ \{\sum_{i=1}^{n} {\mathbf{x}_i^2}  \} ^{\frac{1}{2}}$, where $\mathbf{x}$ =  $\{x_1,x_2,....,x_n\}$. The distance between two vectors $\mathbf{x}$ and $\mathbf{y}$ in $\mathbb{R}^n$ is the real number.
+$$d(\mathbf{x},\mathbf{y}) =  \| \mathbf{x} - \mathbf{y} \| = \{ \sum_{i=1}^{n} {(x_i-y_i)}^2 \}^{\frac{1}{2}} $$
+\end{definition}
+
+\begin{example}
+    Suppose we have a vector \( \mathbf{v} = [3, -4, 5] \). The Euclidean norm of this vector is calculated as follows:
+
+\[ \|\mathbf{v}\|_2 = \sqrt{3^2 + (-4)^2 + 5^2} = \sqrt{9 + 16 + 25} = \sqrt{50} \]
+
+So, the Euclidean norm of the vector \( \mathbf{v} \) is \( \|\mathbf{v}\|_2 = \sqrt{50} \).
+\end{example}
+\begin{definition}
+A \textbf{multiplicative norm} on a commutative unital ring is a function from the non-zero elements of the commutative unital ring to the integers with the property that the norm of a nonzero product of two elements equals the product of their norms.
+\bigskip\bigskip
+\begin{example}
+Imagine we have a set of complex numbers where both the real and imaginary parts are integers, called Gaussian integers. We define a norm function called the Euclidean norm, denoted by $||\cdot ||$ as follows:
+
+$$\|a + bi\| = \sqrt{(a^2 + b^2)}$$
+
+This function assigns a non-negative real number to each Gaussian integer. It satisfies the following properties.
+
+$$\|0\| = 0$$  (i.e., the norm of the Gaussian integer zero is zero) and
+
+$$\|a.b\| = \|a\| \cdot \|b\|$$ (i.e., the norm of the product of two Gaussian integers is the product of their norms).
+
+Therefore, the Euclidean norm is a multiplicative norm on the ring of Gaussian integers.
+\end{example}
+
+\section{Matrices of infinite dimension}
+Most of the definitions recalled in this section belong to the articles by Howard E. Haber~\cite{haber2018notes} and Nicholas J. Higham~\cite{hale2008computing}.
+
+\begin{definition}
+   A \textbf{complex matrix} is a rectangular array of complex numbers arranged in \(m\) rows and \(n\) columns. The set of all $m$-by-$n$ complex matrices is denoted as \(\mathbb{C}^{m \times n}\) or \(M_{m \times n}(\mathbb{C})\), where \(\mathbb{C}\) represents the set of complex numbers.
+\end{definition}
+
+
+\begin{example}
+In the following, both $A$ and $B$ are complex matrices.
+\[
+A = \begin{bmatrix}
+    1 - $i$  & 2$i$ & -2 + \sqrt{3} \\
+    -2 - \sqrt{3}$i$ & -2\sqrt{2} & -2 - \sqrt{2}$i$
+\end{bmatrix}
+\]
+
+\[
+B = \begin{bmatrix}
+    -2\sqrt{2}$i$ & 1 - \sqrt{2} & -4\sqrt{2} \\
+    -1 + \sqrt{3} & 2 - \sqrt{3}$i$ & -2 + \sqrt{2} \\
+    -3\sqrt{2} & -3 + \sqrt{2} & -4 + \sqrt{3}$i$
+\end{bmatrix}
+\]
+\end{example}
+
+
+\begin{definition} 
+   A \textbf{complete matrix} is a matrix in which all elements are specified or defined. In other words, a complete matrix has every entry filled or assigned, with no missing elements. The dimensions of a complete matrix are fully defined, with the number of rows and columns specified.
+
+\end{definition}
+\begin{example}
+In the following, $C$ is a complete matrix.
+    \[
+C = \begin{bmatrix}
+   1 & 2 & 3 \\
+   4 & 5 & 6 \\
+   7 & 8 & 9 \\
+\end{bmatrix}
+\]
+\end{example} 
+
+
+
+\begin{definition}
+An \textbf{incomplete matrix} is a matrix in which one or more elements are undefined or missing. The dimensions of an incomplete matrix may or may not be fully specified, but it contains at least one entry that is not provided.    
+\end{definition}
+
+\begin{example}
+In the matrix $D$ below, the entries represented by '-' are undefined or missing. The dimensions of the matrix are still specified, that is, $3$-by-$3$ but some of the elements are incomplete. So, $D$ is an incomplete matrix.
+\[
+D = \begin{bmatrix}
+   1 & 2 & 3 \\
+   4 & - & 6 \\
+   7 & 8 & - \\
+\end{bmatrix}
+\]
+\end{example}
+
+
+
+% \begin{definition}
+%     Let A be a $m$-by-$n$ matrix. Let $A_{mn}$ be an element of A. We say that $A_{mn}$ is a \textbf{pivot} if and only if\newline 
+% $A_{mn} \neq 0$ and $A_{ij} = 0$ whenever both $i \geq m$ and $j \leq n$ (and $(i,j)\neq(m,n) $) 
+% \end{definition}
+
+\begin{definition}
+    A symmetric matrix $M$ with real entries is \textbf{positive-definite} if, for every nonzero real column vector $\mathbf{x}$, the real number $\mathbf{x}^{\mathrm{T}} Mx$ is positive. Here, $\mathbf{x}^{\mathrm{T}}$ denotes the transpose of $\mathbf{x}$. More generally, a Hermitian matrix, which is a complex matrix equal to its conjugate transpose, is considered positive-definite if the real number $x^{*}Mx$ is positive for every nonzero complex column vector $x$, where $x^{*}$ represents the conjugate transpose of $x$.
+\end{definition}
+\begin{example}
+The following matrix $A$ is symmetric because \( A = A^T \), and it is positive definite because for any non-zero column vector \( x \), the quadratic form \( x^T A x \) will always be greater than zero.
+    \[ A = \begin{bmatrix} 5 & 2 & 1 \\ 2 & 6 & 3 \\ 1 & 3 & 4 \end{bmatrix} \]
+\end{example}
+
+\begin{definition}
+The \textbf{rank} of a matrix $A$ is the maximum number of linearly independent rows or columns in the matrix. 
+\end{definition}
+
+
+\begin{example}
+Consider the matrix $A$ as follows:
+    \[ A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{bmatrix} \]
+    To find the rank of the matrix \( A \), we can perform row operations to bring it to its echelon form or reduced row-echelon form (row-reduced form). The rank is then the number of non-zero rows in that form.
+
+Firstly we perform the following row operations on \( A \).
+\begin{align*}
+\text{R}_{2}^{'} &= \text{R}_2 + (-4) \cdot \text{R}_1 \\
+\text{R}_{3}^{'} &= \text{R}_3 + (-7) \cdot \text{R}_1
+\end{align*}
+
+These give us
+
+\[ \begin{bmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ 0 & -6 & -12 \end{bmatrix}. \]
+
+Now, we perform the following row operations to simplify further.
+
+\[ \text{R}_3^{'} = \text{R}_3 + (-2) \cdot \text{R}_2. \]
+
+This yields
+
+\[ \begin{bmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ 0 & 0 & 0 \end{bmatrix}. \]
+
+We see that the number of non-zero rows of $A$ is 2. Therefore, the rank of the matrix \( A \) is 2.
+\end{example}
+
+
+
+
+\begin{definition}
+    Let $A$ be a real or complex $n$-by-$n$ matrix. The \textbf{matrix exponential} of $A$ is defined via its Taylor series
+\[ e^A = I + \sum_{n=1}^{\infty} \frac{A^n}{n!}, \]
+where $I$ is the $n$-by-$n$ identity matrix. Notably, the radius of convergence for this series is infinite, indicating that the series converges for all matrices $A$. 
+
+
+\end{definition}
+\begin{example}
+Let
+\[ A = \begin{bmatrix} 1 & 2 \\ 0 & -1 \end{bmatrix}. \]
+
+We can calculate the matrix exponential using the following Taylor series. 
+\[ e^A = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \frac{A^4}{4!} + \ldots \]
+
+We calculate some of the terms of the above series as follows:
+
+\[ A^2 = \begin{bmatrix} 1 & 2 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 1 & 2 \\ 0 & -1 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \]
+
+\[ A^3 = A \cdot A^2 = \begin{bmatrix} 1 & 2 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 2 \\ 0 & -1 \end{bmatrix} \]
+
+\[ A^4 = A^2 \cdot A^2 = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \]
+
+Now, substituting these into the series we get
+
+\[ e^A = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \frac{A^4}{4!} + \cdots. \]
+\[ = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} + \begin{bmatrix} 1 & 2 \\ 0 & -1 \end{bmatrix} + \frac{1}{2}\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} + \frac{1}{6}\begin{bmatrix} 1 & 2 \\ 0 & -1 \end{bmatrix} + \frac{1}{24}\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} + \cdots. \]
+
+Simplifying, we can see that this series converges to a matrix. The matrix exponential \(e^A\) in this example is
+
+\[ e^A = \begin{bmatrix} e & 2e \\ 0 & e^{-1} \end{bmatrix} .\]
+
+\end{example}
+
+
+\begin{definition}
+
+The \textbf{matrix logarithm} should be an inverse function to the matrix exponential. However, because the complex logarithm is a multi-valued function, the concept of the matrix logarithm is not as straightforward as the matrix exponential. Let \(A\) be a complex $n$-by-$n$ matrix with no real negative or zero eigenvalues. Then, there is a unique logarithm, denoted by \(\ln A\), all of whose eigenvalues lie in the strip \(-\pi < \text{Im } z < \pi\) of the complex \(z\)-plane. We refer to \(\ln A\) as the principal logarithm of \(A\), which is defined on the cut complex plane, where the cut runs from the origin along the negative real axis. If \(A\) is a real matrix (subject to the conditions just stated), then its principal logarithm is real.
+
+For an $n$-by-$n$ complex matrix \(A\), we can define \(\ln A\) via its Taylor series expansion, under the assumption that the series converges. The matrix logarithm is then defined as
+\[
+\ln A = \sum_{k=1}^{\infty} (-1)^{k+1} \frac{(A - I)^k}{k},
+\]
+whenever the series converges, where \(I\) is the $n$-by-$n$ identity matrix. The series converges whenever \(\|(A - I)\| < 1\), where \(\|\cdot\| \) indicates a suitable matrix norm.
+
+If the matrix \(A\) satisfies \((A - I)^k = 0\) for all integers \(m > N\) (where \(N\) is some fixed positive integer), then \(A - I\) is called nilpotent, and \(A\) is called unipotent. If \(A\) is unipotent, then the series given terminates, and \(\ln A\) is well-defined independently of the value of \(\|(A - I)\|\). For later use, we also note that if \(\|(A - I)\| < 1\), then \(I - A\) is non-singular, and \((I - A)^{-1}\) can be expressed as an infinite geometric series:
+\[
+(I - A)^{-1} = \sum_{k=0}^{\infty} A^k.
+\]
+
+\end{definition}
+
+
+
+
+\begin{example}
+\label{1.7.}
+Let
+\[
+A = \begin{bmatrix}
+    0.8763 & 0.7373 & 0.2400 \\
+    0.3106 & 1.2792 & 0.1884 \\
+    0.2902 & 0.1537 & 0.1851
+\end{bmatrix}
+.\]
+
+We know that
+\[
+\log(A) = \sum_{k=1}^{\infty} (-1)^{k+1} \frac{(A-I)^k}{k}
+.\]
+
+
+If we expand this, we get
+\[
+\log(A)= (A-I) - \frac{(A-I)^{2}}{2} + \frac{(A-I)^{3}}{3} - \frac{(A-I)^{4}}{4} + \cdots
+\]
+
+
+
+\[=
+\begin{bmatrix}
+   -0.1237 & 0.7373 & 0.2400 \\
+    0.3106 & 0.2792 & 0.1884 \\
+    0.2902 & 0.1537 & -0.8149
+\end{bmatrix} - \begin{bmatrix}
+   -0.2807 & 0.6616 & 0.2832 \\
+    0.2591 & 0.1113 & 0.2016 \\
+    0.4025 & 0.0879 & -1.1962
+\end{bmatrix}
+\] \[ +
+\begin{bmatrix}
+   -0.2863 & 0.7484 & 0.3413 \\
+    0.2871 & 0.1665 & 0.2381 \\
+    0.4992 & 0.0840 & -1.4131
+\end{bmatrix} - \begin{bmatrix}
+   -0.3197 & 0.7266 & 0.3656 \\
+    0.2688 & 0.1352 & 0.2476 \\
+    0.5563 & 0.0563 & -1.5624
+\end{bmatrix}
+\] \[+\cdots \]
+
+
+\[=
+\begin{bmatrix}
+   -0.3637 & 0.7554 & 0.4744 \\
+    0.2523 & 0.1515 & 0.3026 \\
+    0.7760 & -0.0110 & -2.0666
+\end{bmatrix}.
+\]
+
+
+\end{example}
+
+\begin{definition}
+The \textbf{principal logarithm} of a complex number $z$ is defined as follows:
+\[
+\text{Log}(z) = \ln|z| + i \, \text{Arg}(z)
+\]
+where
+\begin{enumerate}
+  \item $\ln$ is the natural logarithm,
+  \item $|z|$ is the magnitude (or modulus) of $z$,
+  \item $i$ is the imaginary unit,
+  \item $\text{Arg}(z)$ is the principal argument of $z$, which is the angle $\theta$ such that $-\pi < \theta \leq \pi$, measured in radians.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+    For a complex number $z = x + iy$, where $x$ and $y$ are real numbers, the principal logarithm can be expressed as follows:
+\[
+\text{Log}(z) = \ln \sqrt{x^2 + y^2} + i \, \text{Arg}(z)
+\]
+\end{example}
+\end{definition}
+
+
+\begin{definition}
+A consistent matrix norm $\|\cdot\| : \mathbb{C}^{m\times n} \to \mathbb{R} $ is said to be\textbf{ sub-multiplicative } if for all $A,B\in \mathbb{C}^{m\times n}$ it satisfies $$\| AB \| \leq \| A \|\cdot\| B \|.$$  
+\end{definition}
+
+\begin{example}
+Consider the matrices $A$ and $B$ as follows:
+
+  \[ A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} 
+  \quad\quad
+  B = \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix} \]
+  
+We have
+\[ AB = \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}. \]
+
+Now, we have
+\[ ||A|| = \sqrt{1^2 + 2^2 + 3^2 + 4^2} = \sqrt{30} \approx 5.4772, \]
+
+\[ ||B|| = \sqrt{5^2 + 6^2 + 7^2 + 8^2} = \sqrt{174} \approx 13.1909, \]
+
+and
+\[ ||AB|| = \sqrt{19^2 + 22^2 + 43^2 + 50^2} \approx 72.0694. \]
+  
+Here
+\[ \|AB\| = 72.0694 < (5.4772)(13.1909) = \|A\| \cdot \|B\|. \]
+
+This result shows that the matrix norm considered in this case is a sub-multiplicative norm.
+
+ \end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
